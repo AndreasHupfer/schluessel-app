@@ -17,6 +17,7 @@ services:
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     volumes:
       - ./backend:/app
+      - ./pdfs:/app/pdfs
     working_dir: /app
     environment:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/schluessel_db

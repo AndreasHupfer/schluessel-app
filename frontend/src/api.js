@@ -37,7 +37,10 @@ export const kontakte = {
 export const ausleihen = {
   list: (params) => api.get('/ausleihen/', { params }),
   get: (id) => api.get(`/ausleihen/${id}`),
+  checkout: (data) => api.post('/ausleihen/checkout', data),
+  rueckgabe: (id) => api.post(`/ausleihen/${id}/rueckgabe`),
   create: (data) => api.post('/ausleihen/', data),
   update: (id, data) => api.put(`/ausleihen/${id}`, data),
   delete: (id) => api.delete(`/ausleihen/${id}`),
+  pdfUrl: (id) => `/api/ausleihen/${id}/pdf`,
 }

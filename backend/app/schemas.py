@@ -87,6 +87,7 @@ class AusleiheBase(BaseModel):
     rueckgabe_ist: Optional[date] = None
     befristet: bool = False
     unterschrift_base64: Optional[str] = None
+    bemerkung: Optional[str] = None
     quittung_pdf_path: Optional[str] = None
     status: AusleiheStatus = AusleiheStatus.aktiv
 
@@ -99,3 +100,13 @@ class AusleiheUpdate(AusleiheBase):
 class AusleiheOut(AusleiheBase):
     id: int
     model_config = {"from_attributes": True}
+
+
+# Used for the checkout wizard (server sets status, datum, pdf path)
+class AusleiheWorkflowCreate(BaseModel):
+    schluessel_id: int
+    kontakt_id: int
+    rueckgabe_soll: Optional[date] = None
+    befristet: bool = False
+    unterschrift_base64: Optional[str] = None
+    bemerkung: Optional[str] = None

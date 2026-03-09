@@ -93,6 +93,7 @@ class Ausleihe(Base):
     rueckgabe_ist = Column(Date, nullable=True)
     befristet = Column(Boolean, nullable=False, default=False)
     unterschrift_base64 = Column(Text, nullable=True)
+    bemerkung = Column(Text, nullable=True)
     quittung_pdf_path = Column(String, nullable=True)
     status = Column(Enum(AusleiheStatus), nullable=False, default=AusleiheStatus.aktiv)
 

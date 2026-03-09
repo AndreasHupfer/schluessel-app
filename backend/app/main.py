@@ -1,6 +1,9 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .routers import liegenschaften, schliessungen, schluessel, kontakte, ausleihen
+
+os.makedirs("/app/pdfs", exist_ok=True)
 
 app = FastAPI(title="Schluessel-Manager API", version="1.0.0")
 
